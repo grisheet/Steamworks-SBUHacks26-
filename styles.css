@@ -1,0 +1,178 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* STEAMWORKS design system — Steel & Steam. All colors oklch. */
+
+@theme inline {
+  --font-display: "Big Shoulders Display", "Oswald", Impact, sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-brass: var(--brass);
+  --color-copper: var(--copper);
+  --color-steel: var(--steel);
+  --color-ivory: var(--ivory);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.17 0.015 250);
+  --foreground: oklch(0.93 0.02 85);
+  --card: oklch(0.22 0.015 250);
+  --card-foreground: oklch(0.93 0.02 85);
+  --popover: oklch(0.22 0.015 250);
+  --popover-foreground: oklch(0.93 0.02 85);
+  --primary: oklch(0.76 0.13 75);
+  --primary-foreground: oklch(0.18 0.02 60);
+  --secondary: oklch(0.28 0.015 250);
+  --secondary-foreground: oklch(0.9 0.02 85);
+  --muted: oklch(0.26 0.012 250);
+  --muted-foreground: oklch(0.7 0.02 85);
+  --accent: oklch(0.32 0.02 250);
+  --accent-foreground: oklch(0.95 0.02 85);
+  --destructive: oklch(0.62 0.19 30);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --success: oklch(0.75 0.14 155);
+  --warning: oklch(0.78 0.15 60);
+  --brass: oklch(0.76 0.13 80);
+  --copper: oklch(0.62 0.13 45);
+  --steel: oklch(0.72 0.015 240);
+  --ivory: oklch(0.94 0.03 90);
+  --border: oklch(0.34 0.015 250);
+  --input: oklch(0.34 0.015 250);
+  --ring: oklch(0.8 0.13 75);
+
+  --bench-bg: oklch(0.205 0.012 250);
+  --metal-steel-light: oklch(0.86 0.01 240);
+  --metal-steel-mid: oklch(0.62 0.015 240);
+  --metal-steel-end: oklch(0.78 0.01 240);
+  --metal-brass-light: oklch(0.88 0.12 88);
+  --metal-brass-mid: oklch(0.66 0.13 72);
+  --metal-brass-end: oklch(0.8 0.12 82);
+  --metal-copper-light: oklch(0.78 0.12 50);
+  --metal-copper-mid: oklch(0.55 0.13 40);
+  --metal-copper-end: oklch(0.7 0.12 48);
+  --metal-bad-light: oklch(0.7 0.16 30);
+  --metal-bad-end: oklch(0.5 0.17 28);
+  --metal-outline: oklch(0 0 0 / 40%);
+  --metal-heavy-outline: oklch(0 0 0 / 50%);
+  --cylinder-interior: oklch(0.16 0.015 250);
+  --steam-vapor: oklch(0.95 0.01 90 / 50%);
+  --drive-belt: oklch(0.3 0.03 50);
+  --metal-etch: oklch(0 0 0 / 25%);
+  --gear-cutout: oklch(0.14 0.015 250 / 80%);
+  --gear-shadow: oklch(0 0 0);
+  --socket-fill: oklch(0.12 0.015 250 / 60%);
+  --shadow-panel: 0 18px 40px -20px oklch(0 0 0 / 70%);
+}
+
+.rail-section { border-bottom: 1px solid var(--border); background: var(--card); border-radius: var(--radius-md); }
+.tray-part svg { width: 2.25rem; height: 2.25rem; }
+.utility-rail .rail-section { padding: 0.625rem; }
+@media (min-width: 1024px) and (max-height: 780px) {
+  .utility-rail { gap: 0.25rem; }
+  .utility-rail .rail-section { padding: 0.5rem; }
+  .utility-rail .tray-part { padding: 0.25rem; }
+  .utility-rail .tray-part svg { width: 1.75rem; height: 1.75rem; }
+  .utility-rail [aria-label="Telemetry"] dl { font-size: 0.75rem; row-gap: 0.125rem; }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility panel {
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+}
+
+@utility bench {
+  background: var(--bench-bg);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+@keyframes steam-rise {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  20% { opacity: 0.55; }
+  100% { transform: translate(-14px, -70px) scale(1.8); opacity: 0; }
+}
+@utility steam-puff {
+  animation: steam-rise 2.4s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes socket-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@utility socket-pulse {
+  animation: socket-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes success-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@utility success-in {
+  animation: success-in 0.45s ease-out both;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@keyframes gear-snap { from { opacity: 0.6; } to { opacity: 1; } }
+.gear-snap { animation: gear-snap 160ms ease-out; }
